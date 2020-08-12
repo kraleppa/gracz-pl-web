@@ -20,11 +20,36 @@
     color: #3631C2
 }
 
-.img-button:hover{
+.div-button:hover{
     filter: blur(1px);
     transition: 100ms;
 }
 
-.img-button{
+.div-button{
     cursor: pointer;
 }
+
+.page-link {
+    color: #3631C2
+}
+
+.page-link:hover {
+    color: #3631C2
+}
+
+.button-standard {
+    background: #3631C2;
+    color: white;
+    border: #3631C2;
+}
+
+.button-standard:hover {
+    background: #443fc9;
+    border: #443fc9;
+}
+
+.button-standard:focus{
+    background: #443fc9;
+    border: #443fc9;
+}
+
