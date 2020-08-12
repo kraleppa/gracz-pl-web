@@ -3,9 +3,12 @@ import React from "react";
 class GamesListElement extends React.Component {
     render() {
         return (
-            <div className="col-4">
-                <img className="img-fluid" src={this.props.imageUrl} />
-
+            <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+                <img className="img-fluid game-image img-button" src={this.props.imageUrl} />
+                <ul className="list-group game-element-list">
+                    <li className="list-group-item ">{this.props.name}</li>
+                    <li className="list-group-item price-text">{this.props.price}</li>
+                </ul>
             </div>
         )
     }
