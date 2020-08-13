@@ -39,7 +39,7 @@ class GamesList extends React.Component {
             }
         })
 
-        fetch(`http://localhost:8080/api/v1/games?page=${this.state.currentPage}&size=12`)
+        fetch(`http://localhost:8080/api/v1/games?page=${this.state.currentPage}&size=12&console=${this.props.match.params.console}`)
             .then(response => response.json())
             .then(data => this.setState(previousState => {
                 return {
