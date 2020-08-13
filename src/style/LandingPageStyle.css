@@ -1,0 +1,15 @@
+.console-pick img {
+    height: auto;
+    width: 10em;
+    cursor: pointer;
+}
+
+.console-pick img:hover {
+    filter: blur(10px);
+    transition: 500ms;
+
+}
+
+.console-pick-container {
+    margin-top: 5em;
+}
