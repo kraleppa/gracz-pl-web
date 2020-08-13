@@ -13,20 +13,20 @@ class LandingPage extends React.Component {
 
 
                     <div className="col-6" style={{display: "flex", justifyContent: "flex-end"}}>
-                        <Link to="/shop">
+                        <Link to="/shop/playstation_4">
                             <img src="https://image.flaticon.com/icons/svg/588/588258.svg" />
                         </Link>
                     </div>
 
 
                     <div className="col-6"  style={{display: "flex", justifyContent: "flex-start"}}>
-                        <Link to="/shop">
+                        <Link to="/shop/xbox_one">
                             <img src="https://image.flaticon.com/icons/svg/732/732260.svg" />
                         </Link>
                     </div>
 
                     <div className="col-12 mt-4"  style={{display: "flex", justifyContent: "center"}}>
-                        <Link to="/shop">
+                        <Link to="/shop/nintendo_switch">
                             <img src="https://image.flaticon.com/icons/svg/871/871377.svg" />
                         </Link>
                     </div>

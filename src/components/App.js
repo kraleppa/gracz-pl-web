@@ -13,7 +13,7 @@ class App extends Component {
                     <Navbar />
                     <Switch>
                         <Route path="/" exact component={LandingPage} />
-                        <Route path="/shop" component={GamesList} />
+                        <Route path="/shop/:console" component={GamesList} />
                     </Switch>
                 </Router>
             </div>

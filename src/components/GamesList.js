@@ -16,7 +16,8 @@ class GamesList extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8080/api/v1/games?page=0&size=12")
+
+        fetch(`http://localhost:8080/api/v1/games?page=0&size=12&console=${this.props.match.params.console}`)
             .then(response => response.json())
             .then(data => this.setState({
                 games: data.content,
