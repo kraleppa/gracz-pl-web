@@ -1,14 +1,21 @@
 import React, {Component} from "react";
 import Navbar from "./Navbar";
-import GamesList from "./GamesList";
 import LandingPage from "./LandingPage";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import GamesList from "./GamesList";
 
 class App extends Component {
     render() {
         return(
             <div>
-                <Navbar />
-                <LandingPage />
+
+                <Router>
+                    <Navbar />
+                    <Switch>
+                        <Route path="/" exact component={LandingPage} />
+                        <Route path="/shop" component={GamesList} />
+                    </Switch>
+                </Router>
             </div>
         )
     }

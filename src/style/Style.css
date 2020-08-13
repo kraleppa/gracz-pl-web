@@ -36,4 +36,8 @@
     border: #443fc9;
 }
 
+.navbar-blue a:hover {
+    color: lightgray;
+}
+
 
