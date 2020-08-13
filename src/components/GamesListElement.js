@@ -3,13 +3,25 @@ import React from "react";
 class GamesListElement extends React.Component {
     render() {
         return (
-            <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-4 div-button">
-                <img className="img-fluid game-image" src={this.props.imageUrl} />
-                <ul className="list-group game-element-list">
-                    <li className="list-group-item ">{this.props.id}</li>
-                    <li className="list-group-item ">{this.props.name}</li>
-                    <li className="list-group-item price-text">{this.props.price}</li>
-                </ul>
+            <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <figure className="card card-product">
+                    <div className="img-wrap">
+                        <img src={this.props.imageUrl}/>
+                    </div>
+                    <figcaption className="info-wrap">
+                        <h4 className="title">{this.props.name}</h4>
+                        {/*<div className="rating-wrap">*/}
+                        {/*    <div className="label-rating">132 reviews</div>*/}
+                        {/*    <div className="label-rating">154 orders</div>*/}
+                        {/*</div>*/}
+                    </figcaption>
+                    <div className="bottom-wrap">
+                        <a href="" className="btn button-standard float-right" style={{fontSize: "0.9em"}}>Order Now</a>
+                        <div className="price-wrap h5">
+                            <span className="price-new">{this.props.price} zł</span>
+                        </div>
+                    </div>
+                </figure>
             </div>
         )
     }
