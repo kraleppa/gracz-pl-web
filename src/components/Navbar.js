@@ -7,7 +7,7 @@ class Navbar extends React.Component{
             <div>
                 <nav className="navbar navbar-blue">
                     <Link to='/'>
-                        <a className="navbar-brand">gracz.pl</a>
+                        <a className="navbar-brand">Gracz.pl</a>
                     </Link>
 
                 </nav>
