@@ -32,14 +32,9 @@ class LandingPage extends React.Component {
                             <img src="https://image.flaticon.com/icons/svg/871/871377.svg" />
                         </Link>
                     </div>
-
-
                 </div>
 
-
-
                <BestSellersList />
-
             </div>
         )
     }

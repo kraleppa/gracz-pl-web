@@ -40,4 +40,12 @@
     color: lightgray;
 }
 
+#sticky-footer {
+    background: #3631C2;
+}
+
+#sticky-footer a {
+    color: white;
+}
+
 

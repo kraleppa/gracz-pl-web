@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import LandingPage from "./LandingPage";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import GamesList from "./GamesList";
+import Footer from "./Footer";
 
 class App extends Component {
     render() {
@@ -15,6 +16,7 @@ class App extends Component {
                         <Route path="/" exact component={LandingPage} />
                         <Route path="/shop/:console" component={GamesList} />
                     </Switch>
+                    <Footer />
                 </Router>
             </div>
         )
