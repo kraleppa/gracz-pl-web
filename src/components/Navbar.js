@@ -10,6 +10,10 @@ class Navbar extends React.Component{
                         <a className="navbar-brand">Gracz.pl</a>
                     </Link>
 
+                    <Link to="/add">
+                        <a className="navbar-brand">Dodaj gre</a>
+                    </Link>
+
                 </nav>
             </div>
         )

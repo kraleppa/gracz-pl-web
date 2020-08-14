@@ -3,7 +3,7 @@ import React from "react";
 class Footer extends React.Component {
     render() {
         return (
-            <footer id="sticky-footer" className="py-4 text-white-50">
+            <footer id="sticky-footer" className="py-4 text-white-50 mt-5">
                 <div className="container text-center">
                     <small>
                         © 2020 Copyright
