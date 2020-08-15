@@ -5,6 +5,7 @@ class GamesListElement extends React.Component {
         return (
             <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                 <figure className="card card-product">
+                    <div className="div-button">
                     <div className="img-wrap">
                         <img src={this.props.imageUrl}/>
                     </div>
@@ -15,8 +16,9 @@ class GamesListElement extends React.Component {
                         {/*    <div className="label-rating">154 orders</div>*/}
                         {/*</div>*/}
                     </figcaption>
+                    </div>
                     <div className="bottom-wrap">
-                        <a href="" className="btn button-standard float-right" style={{fontSize: "0.9em"}}>Order Now</a>
+                        <a href="" className="btn button-standard float-right" style={{fontSize: "0.9em"}}>Do koszyka</a>
                         <div className="price-wrap h5">
                             <span className="price-new">{this.props.price} zł</span>
                         </div>

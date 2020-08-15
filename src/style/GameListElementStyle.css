@@ -32,3 +32,8 @@
 .card-product .price-old {
     color: #999;
 }
+
+.div-button:hover {
+    cursor: pointer;
+    color: #443fc9;
+}
