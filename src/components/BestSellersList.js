@@ -1,5 +1,6 @@
 import React from "react";
 import GamesListElement from "./GamesListElement";
+import host from "./util/API";
 
 class BestSellersList extends React.Component{
     constructor() {
@@ -12,7 +13,7 @@ class BestSellersList extends React.Component{
 
 
     componentDidMount() {
-        fetch("http://localhost:8080/api/v1/games?page=0&size=4")
+        fetch(`${host}/api/v1/games?page=0&size=4`)
             .then(response => response.json())
             .then(data => this.setState({
                 games: data.content,

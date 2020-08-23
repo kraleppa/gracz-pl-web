@@ -1,4 +1,5 @@
 import React from "react";
+import host from "./util/API";
 
 class GameAddPanel extends React.Component{
     constructor() {
@@ -22,7 +23,7 @@ class GameAddPanel extends React.Component{
     }
 
     handleSubmit(){
-        fetch('http://localhost:8080/api/v1/games', {
+        fetch(`${host}/api/v1/games`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -1,5 +1,6 @@
 import React from "react";
 import GamesListElement from "./GamesListElement";
+import host from "./util/API";
 
 class GamesList extends React.Component {
     constructor() {
@@ -17,7 +18,7 @@ class GamesList extends React.Component {
 
     componentDidMount() {
 
-        fetch(`http://localhost:8080/api/v1/games?page=0&size=12&console=${this.props.match.params.console}`)
+        fetch(`${host}/api/v1/games?page=0&size=12&console=${this.props.match.params.console}`)
             .then(response => response.json())
             .then(data => this.setState({
                 games: data.content,
@@ -39,7 +40,7 @@ class GamesList extends React.Component {
             }
         })
 
-        fetch(`http://localhost:8080/api/v1/games?page=${this.state.currentPage}&size=12&console=${this.props.match.params.console}`)
+        fetch(`${host}/api/v1/games?page=${this.state.currentPage}&size=12&console=${this.props.match.params.console}`)
             .then(response => response.json())
             .then(data => this.setState(previousState => {
                 return {
