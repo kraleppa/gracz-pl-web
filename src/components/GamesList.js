@@ -56,7 +56,8 @@ class GamesList extends React.Component {
 
     render () {
         const htmlList = this.state.games.map(game =>
-                <GamesListElement name={game.name} imageUrl={game.imageUrl} price={game.price} id={game.gameId}/>
+                <GamesListElement name={game.name} imageUrl={game.imageUrl} price={game.price} id={game.gameId}
+                />
             );
 
         return(
