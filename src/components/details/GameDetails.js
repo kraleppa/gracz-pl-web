@@ -65,9 +65,7 @@ class GameDetails extends React.Component {
                     <div className="col-12 mt-3">
                         <h4>Opis</h4>
                         {this.state.description}
-
                     </div>
-
                 </div>
             </div>
         )
