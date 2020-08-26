@@ -1,5 +1,5 @@
 import React from "react";
-import host from "./util/API";
+import host from "../util/API";
 
 class GameAddPanel extends React.Component{
     constructor() {
@@ -23,6 +23,7 @@ class GameAddPanel extends React.Component{
     }
 
     handleSubmit(){
+        console.log("eeee")
         fetch(`${host}/api/v1/games`, {
             method: 'POST',
             headers: {
@@ -39,8 +40,6 @@ class GameAddPanel extends React.Component{
                     console: "PLAYSTATION_4",
                     description: "",
                     imageUrl: "",
-                    added: "visible",
-                    error: "hidden"
                 })
                 console.log(data)
             })
@@ -52,8 +51,6 @@ class GameAddPanel extends React.Component{
                     console: "PLAYSTATION_4",
                     description: "",
                     imageUrl: "",
-                    added: "hidden",
-                    error: "visible"
                 })
                 console.log(error)
             });
@@ -63,13 +60,11 @@ class GameAddPanel extends React.Component{
         return (
             <div className="container">
 
-
-
             <form onSubmit={this.handleSubmit}>
                 <div className="form-row">
                     <div className="col-6 mt-4 offset-3">
                         <label htmlFor="form01">Nazwa gry</label>
-                        <input type="text" className="form-control" id="form01" name="name"
+                        <input type="text" className="form-control" id="form01" name="name" value={this.state.name}
                                placeholder="Uncharted 4" onChange={this.handleChange} required />
                     </div>
                 </div>
@@ -77,7 +72,7 @@ class GameAddPanel extends React.Component{
                 <div className="form-row">
                     <div className="col-6 mt-4 offset-3">
                         <label htmlFor="form02">Cena</label>
-                        <input type="number" className="form-control" id="form02" name={"price"}
+                        <input type="number" className="form-control" id="form02" name={"price"} value={this.state.price}
                                placeholder="69.99" onChange={this.handleChange} min="0" step="0.01" required />
                     </div>
                 </div>
@@ -85,7 +80,7 @@ class GameAddPanel extends React.Component{
                 <div className="form-row">
                     <div className="col-6 mt-4 offset-3">
                         <label htmlFor="form03">Gatunek</label>
-                        <select className="custom-select" id="form03" onChange={this.handleChange}
+                        <select className="custom-select" id="form03" onChange={this.handleChange} value={this.state.genre}
                             name="genre" required>
                             <option value="ACTION">Akcja</option>
                             <option value="RPG">RPG</option>
@@ -108,7 +103,7 @@ class GameAddPanel extends React.Component{
                     <div className="col-6 mt-4 offset-3">
                         <label htmlFor="form04">Konsola</label>
                         <select className="custom-select" id="form04" onChange={this.handleChange}
-                                name="console">
+                                name="console" value={this.state.console}>
                             <option value="PLAYSTATION_4">Playstation 4</option>
                             <option value="XBOX_ONE">Xbox One</option>
                             <option value="NINTENDO_SWITCH">Nintendo Switch</option>
@@ -119,7 +114,7 @@ class GameAddPanel extends React.Component{
                 <div className="form-row">
                     <div className="col-6 mt-4 offset-3">
                         <label htmlFor="form05">Opis</label>
-                        <textarea className="form-control" id="form05" rows="10" name="description"
+                        <textarea className="form-control" id="form05" rows="10" name="description" value={this.state.description}
                             onChange={this.handleChange}/>
                     </div>
                 </div>
@@ -127,20 +122,18 @@ class GameAddPanel extends React.Component{
                 <div className="form-row">
                     <div className="col-6 mt-4 offset-3">
                         <label htmlFor="form06">URL Zdjęcia</label>
-                        <input type="url" className="form-control" id="form06" name={"imageUrl"}
+                        <input type="url" className="form-control" id="form06" name={"imageUrl"} value={this.state.imageUrl}
                                placeholder="https://photo.jpg" onChange={this.handleChange} required />
                     </div>
                 </div>
 
                 <div className="form-row text-center mt-5">
                     <div className="col-12">
-                        <button className="btn button-standard" type="submit">Dodaj</button>
+                        <button className="btn button-standard" type="submit">Zapisz</button>
                     </div>
 
                 </div>
             </form>
-
-
             </div >
         )
     }

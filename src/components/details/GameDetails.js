@@ -1,6 +1,6 @@
 import React from "react";
-import host from "./util/API";
-import {genreToString, consoleToString} from "./util/EnumToString"
+import host from "../util/API";
+import {genreToString, consoleToString} from "../util/EnumToString"
 
 class GameDetails extends React.Component {
     constructor() {

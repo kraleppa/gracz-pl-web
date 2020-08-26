@@ -1,6 +1,6 @@
 import React from "react";
 import GamesListElement from "./GamesListElement";
-import host from "./util/API";
+import host from "../util/API";
 
 class GamesList extends React.Component {
     constructor() {

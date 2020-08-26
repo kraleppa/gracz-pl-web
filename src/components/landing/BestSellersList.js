@@ -1,6 +1,6 @@
 import React from "react";
-import GamesListElement from "./GamesListElement";
-import host from "./util/API";
+import GamesListElement from "../list/GamesListElement";
+import host from "../util/API";
 
 class BestSellersList extends React.Component{
     constructor() {

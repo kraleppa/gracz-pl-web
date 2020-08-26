@@ -19,3 +19,4 @@ yarn-error.log*
 .idea
 
 /src/components/util/API.js
+/Dockerfile
