@@ -36,7 +36,7 @@ class GamesListElement extends React.Component {
                         <img src={this.props.imageUrl}/>
                     </div>
                     <figcaption className="info-wrap">
-                        <h4 className="title">{this.props.name}</h4>
+                        <h4 className="title">{this.props.name + " ?id=" + this.props.id}</h4>
                         {/*<div className="rating-wrap">*/}
                         {/*    <div className="label-rating">132 reviews</div>*/}
                         {/*    <div className="label-rating">154 orders</div>*/}

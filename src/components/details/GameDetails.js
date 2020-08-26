@@ -41,7 +41,8 @@ class GameDetails extends React.Component {
                     </div>
                     <div className="col-sm-12 col-md-6 my-auto">
                         <div className="text-center">
-                            <h2>Cena:</h2>
+                            <h1 style={{color: "#3631C2"}}>{this.state.name}</h1>
+                            <h2 className="mt-4">Cena:</h2>
                             <h1 style={{color: "#3631C2"}}>{this.state.price} zł</h1>
                             <button className="btn button-standard btn-lg mt-4">
                                 Kup teraz
