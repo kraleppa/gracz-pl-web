@@ -63,6 +63,8 @@ class GamesList extends React.Component {
         let filterString = `${host}/api/v1/games?page=${0}&size=12&console=${this.props.match.params.console}`
         if (filter.genre !== "") filterString += `&genre=${filter.genre}`
         if (filter.name !== "") filterString += `&name=${filter.name}`
+        if (filter.sortBy !== "") filterString += `&sortBy=${filter.sortBy}&ascending=${filter.ascending}`
+
 
         fetch( filterString )
             .then(response => response.json())

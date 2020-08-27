@@ -5,14 +5,20 @@ class FilterSortPanel extends React.Component {
         super();
         this.state = {
             name: "",
-            genre: ""
+            genre: "",
+            sortBy: "",
+            ascending: true
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleChange(event){
-        const {name, value, type} = event.target;
+        const {name, value, type, checked} = event.target;
+        if (type === "checkbox") {
+            this.setState({[name]: !checked})
+            return;
+        }
         type === "number" ? this.setState({[name]: parseInt(value)}) : this.setState({[name]: value})
     }
 
@@ -33,7 +39,7 @@ class FilterSortPanel extends React.Component {
 
                     <div className="col-12 col-md-6 offset-md-3 mt-3">
                         <select className="custom-select" id="form02" onChange={this.handleChange} name="genre">
-                            <option value="">Wszystkie</option>
+                            <option value="">Kategoria</option>
                             <option value="ACTION">Akcja</option>
                             <option value="RPG">RPG</option>
                             <option value="ADVENTURE">Przygodowa</option>
@@ -48,6 +54,19 @@ class FilterSortPanel extends React.Component {
                             <option value="MMO">MMO</option>
                             <option value="FIGHTING">Bijatyka</option>
                         </select>
+                    </div>
+
+                    <div className="col-12 col-md-5 offset-md-3 mt-3">
+                        <select className="custom-select" id="form03" onChange={this.handleChange} name="sortBy">
+                            <option value="">Sortuj</option>
+                            <option value="name">Tytuł</option>
+                            <option value="price">Cena</option>
+                        </select>
+                    </div>
+                    <div className="col-1 mt-4 ml-4">
+                        <input type="checkbox" className="form-check-input" id="check" name="ascending"
+                            onChange={this.handleChange}/>
+                        <label className="form-check-label" htmlFor="check">Malejąco</label>
                     </div>
                 </div>
                 <div className="form-row mt-3">
