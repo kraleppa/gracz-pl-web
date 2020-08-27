@@ -29,7 +29,7 @@ class GamesList extends React.Component {
                 totalPages: data.totalPages,
                 btnState: data.totalPages <= 1 ? "hidden" : "visible",
                 spinnerState: "hidden",
-                filterString: `${host}/api/v1/games?page=0&size=12&console=${this.props.match.params.console}`
+                filterString: `${host}/api/v1/games?size=12&console=${this.props.match.params.console}`
             }))
     }
 
@@ -45,7 +45,7 @@ class GamesList extends React.Component {
             }
         })
 
-        fetch(this.state.filterString)
+        fetch(this.state.filterString + `&page=${this.state.currentPage}`)
             .then(response => response.json())
             .then(data => this.setState(previousState => {
                 return {
@@ -60,13 +60,13 @@ class GamesList extends React.Component {
     }
 
     handleFilter(filter) {
-        let filterString = `${host}/api/v1/games?page=${0}&size=12&console=${this.props.match.params.console}`
+        let filterString = `${host}/api/v1/games?size=12&console=${this.props.match.params.console}`
         if (filter.genre !== "") filterString += `&genre=${filter.genre}`
         if (filter.name !== "") filterString += `&name=${filter.name}`
         if (filter.sortBy !== "") filterString += `&sortBy=${filter.sortBy}&ascending=${filter.ascending}`
 
 
-        fetch( filterString )
+        fetch( filterString + "&page=0" )
             .then(response => response.json())
             .then(data => this.setState({
                     games: data.content,
