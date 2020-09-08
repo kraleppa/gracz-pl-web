@@ -1,12 +1,13 @@
 import React, {Component} from "react";
 import Navbar from "./basic/Navbar";
 import LandingPage from "./landing/LandingPage";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import GamesList from "./list/GamesList";
-import Footer from "./basic/Footer";
+
 import GameAddPanel from "./form/GameAddPanel";
 import GameDetails from "./details/GameDetails";
 import EditGamePanel from "./form/EditGamePanel";
+import LoginPanel from "./form/LoginPanel";
 
 class App extends Component {
     render() {
@@ -20,6 +21,10 @@ class App extends Component {
                         <Route path="/add"  component={GameAddPanel} />
                         <Route exact path="/game/:id" component={GameDetails} />
                         <Route exact path="/edit/:id" component={EditGamePanel} />
+                        {localStorage.getItem("jwt") == null ?
+                            (<Route exact path="/login" component={LoginPanel} />) :
+                            (<Redirect to={"/"} />)}
+
                     </Switch>
                     {/*<Footer />*/}
                 </Router>
