@@ -13,18 +13,17 @@ class GamesListElement extends React.Component {
     }
 
     handleClick(){
+        console.log(sessionStorage.getItem("jwt"))
         fetch(`${host}/api/v1/games/${this.props.id}`, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json'
+                'Authorization': `Bearer ${sessionStorage.getItem("jwt")}`
             }
         })
+            .then(response => console.log(response.status))
             .then(() => this.setState({text: "Usunięto"}))
-            .catch(error => console.log("Błąd :< " + error))
+            // .catch(error => console.log("Błąd :< " + error))
     }
-
-
-
 
     render() {
         return (
@@ -45,17 +44,23 @@ class GamesListElement extends React.Component {
                     </div>
                 </Link>
                     <div className="bottom-wrap">
-                        <a href="" className="btn button-standard float-right" style={{fontSize: "0.9em"}}>Do koszyka</a>
-                        <div className="price-wrap h5">
+                        {sessionStorage.getItem("role") != null &&
+                            <a href="" className="btn button-standard float-right" style={{fontSize: "0.9em"}}>Do koszyka</a>
+                        }
+
+                        <div className="price-wrap h5 text-center">
                             <span className="price-new">{this.props.price} zł</span>
                         </div>
                     </div>
+                    {sessionStorage.getItem("role") === "ROLE_ADMIN" &&
                     <div className="bottom-wrap text-center">
                         <Link to={`/edit/${this.props.id}`}>
                             <button className="btn btn-success btn-sm mr-4">Edytuj</button>
                         </Link>
                         <button className="btn btn-danger btn-sm" onClick={this.handleClick}>{this.state.text}</button>
                     </div>
+                    }
+
                 </figure>
             </div>
         )

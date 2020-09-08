@@ -18,12 +18,19 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/"  component={LandingPage} />
                         <Route path="/shop/:console" component={GamesList} />
-                        <Route path="/add"  component={GameAddPanel} />
                         <Route exact path="/game/:id" component={GameDetails} />
-                        <Route exact path="/edit/:id" component={EditGamePanel} />
+                        {sessionStorage.getItem("role") === "ROLE_ADMIN" ?
+                            <Route exact path="/add" component={GameAddPanel} /> :
+                            <Redirect from="/add" to={"/"} />}
+
+                        {sessionStorage.getItem("role") === "ROLE_ADMIN" ?
+                            <Route exact path="/edit/:id" component={EditGamePanel} /> :
+                            <Redirect from="/edit/:id" to={"/"} />}
+
                         {sessionStorage.getItem("jwt") == null ?
-                            (<Route exact path="/login" component={LoginPanel} />) :
-                            (<Redirect to={"/"} />)}
+                            <Route exact path="/login" component={LoginPanel} /> :
+                            <Redirect from="/login" to={"/"} />}
+
 
                     </Switch>
                     {/*<Footer />*/}

@@ -1,4 +1,5 @@
 import React from "react";
+import jwt_decode from "jwt-claims"
 
 class LoginPanel extends React.Component {
     constructor() {
@@ -30,15 +31,19 @@ class LoginPanel extends React.Component {
         })
             .then(response => response.json())
             .then(data => {
+                jwt_decode(data.jwt)
                 sessionStorage.setItem('jwt', data.jwt);
-                sessionStorage.setItem('username', this.state.username);
+                sessionStorage.setItem('username', jwt_decode(data.jwt).sub);
+                sessionStorage.setItem('role', jwt_decode(data.jwt).role.authority)
                 window.location.href="/";
             })
-            .catch(() => this.setState({
+            .catch(() => {
+                this.setState({
                 username: "",
                 password: "",
                 error: "visible"
-            }))
+            });
+            })
     }
 
     handleChange(event){
@@ -54,7 +59,7 @@ class LoginPanel extends React.Component {
                     <div className="row">
                         <div className="col-12 col-md-8 offset-md-2 form-group">
                             <input type="text" className="form-control" placeholder="Nazwa"
-                                   name={"username"} value={this.state.email} onChange={this.handleChange} required/>
+                                   name={"username"} value={this.state.username} onChange={this.handleChange} required/>
                         </div>
                     </div>
                     <div className="row">

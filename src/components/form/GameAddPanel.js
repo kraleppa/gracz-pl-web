@@ -23,11 +23,11 @@ class GameAddPanel extends React.Component{
     }
 
     handleSubmit(){
-        console.log("eeee")
         fetch(`${host}/api/v1/games`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${sessionStorage.getItem("jwt")}`,
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(this.state),
         })

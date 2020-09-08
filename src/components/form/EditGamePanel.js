@@ -41,7 +41,8 @@ class EditGamePanel extends GameAddPanel {
         fetch(`${host}/api/v1/games/${this.props.match.params.id}`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${sessionStorage.getItem("jwt")}`,
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(this.state)
         })

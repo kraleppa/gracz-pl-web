@@ -1,6 +1,8 @@
 import React from "react";
 import LoginNavbar from "./LoginNavbar";
 import UserNavbar from "./UserNavbar";
+import logo from "../../img/logo.png"
+import { Link } from "react-router-dom";
 
 class Navbar extends React.Component{
     constructor() {
@@ -25,18 +27,32 @@ class Navbar extends React.Component{
         return(
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <a className="navbar-brand" href="/">Gracz.pl</a>
+                    <a className="navbar-brand" href="/" >
+                        <img src={logo} width="80" height="70" alt="" />
+                    </a>
                     <div className="collapse navbar-collapse" id="navbarText">
                         <ul className="navbar-nav mr-auto">
+
                             <li className="nav-item active">
-                                <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+                                <a className="nav-link" href="/">Strona główna</a>
                             </li>
+                            { this.state.loggedIn &&
                             <li className="nav-item">
-                                <a className="nav-link" href="/">Features</a>
+                                <a className="nav-link" href="/">Moje konto</a>
                             </li>
+                            }
+                            {this.state.loggedIn &&
                             <li className="nav-item">
-                                <a className="nav-link" href="/">Pricing</a>
+                                <a className="nav-link" href="/">Moje zamówienia</a>
                             </li>
+                            }
+                            {sessionStorage.getItem("role") === "ROLE_ADMIN" &&
+                            <li className="nav-item">
+                                <Link to='/add'>
+                                    <a className="nav-link">Dodaj grę</a>
+                                </Link>
+                            </li>
+                            }
                         </ul>
                         {this.state.loggedIn ? <UserNavbar username={this.state.loggedIn}/> : <LoginNavbar />}
                     </div>
