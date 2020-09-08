@@ -12,11 +12,11 @@ class Navbar extends React.Component{
     }
 
     componentDidMount() {
-        console.log(localStorage.getItem("jwt") )
-        if (localStorage.getItem("jwt") != null){
+        console.log(sessionStorage)
+        if (sessionStorage.getItem("jwt") != null){
             this.setState({
                 isLoggedIn: true,
-                loggedIn: localStorage.getItem("username")
+                loggedIn: sessionStorage.getItem("username")
             })
         }
     }

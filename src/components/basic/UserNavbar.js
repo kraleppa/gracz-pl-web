@@ -8,7 +8,7 @@ class UserNavbar extends React.Component {
     }
 
     handleClick(){
-        localStorage.clear()
+        sessionStorage.clear()
         window.location.reload(false);
     }
 

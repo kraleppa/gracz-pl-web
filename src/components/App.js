@@ -21,7 +21,7 @@ class App extends Component {
                         <Route path="/add"  component={GameAddPanel} />
                         <Route exact path="/game/:id" component={GameDetails} />
                         <Route exact path="/edit/:id" component={EditGamePanel} />
-                        {localStorage.getItem("jwt") == null ?
+                        {sessionStorage.getItem("jwt") == null ?
                             (<Route exact path="/login" component={LoginPanel} />) :
                             (<Redirect to={"/"} />)}
 

@@ -30,8 +30,8 @@ class LoginPanel extends React.Component {
         })
             .then(response => response.json())
             .then(data => {
-                localStorage.setItem('jwt', data.jwt);
-                localStorage.setItem('username', this.state.username);
+                sessionStorage.setItem('jwt', data.jwt);
+                sessionStorage.setItem('username', this.state.username);
                 window.location.href="/";
             })
             .catch(() => this.setState({
