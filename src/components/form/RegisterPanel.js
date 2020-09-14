@@ -1,4 +1,5 @@
 import React from "react";
+import host from "../util/API";
 
 class RegisterPanel extends React.Component {
     constructor() {
@@ -38,7 +39,7 @@ class RegisterPanel extends React.Component {
 
         console.log(json)
 
-        fetch('http://localhost:8080/api/v1/users', {
+        fetch(`${host}/api/v1/users`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
