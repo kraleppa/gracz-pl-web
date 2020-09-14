@@ -55,7 +55,7 @@ class LoginPanel extends React.Component {
         return (
             <div className="container">
                 <form onSubmit={this.handleSubmit}>
-                    <h2 className="text-center mt-5 mb-4" style={{color: "#3631C2"}}>Login</h2>
+                    <h2 className="text-center mt-5 mb-4" style={{color: "#3631C2"}}>Logowanie</h2>
                     <div className="row">
                         <div className="col-12 col-md-8 offset-md-2 form-group">
                             <input type="text" className="form-control" placeholder="Nazwa"

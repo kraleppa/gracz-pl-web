@@ -8,7 +8,10 @@ class LoginNavbar extends React.Component {
                 <Link to={'/login'} >
                     <button className="btn btn-outline-light my-2 my-sm-0" type="submit">Zaloguj</button>
                 </Link>
-                <button className="btn btn-outline-light my-2 my-sm-0 ml-4" type="submit">Zarejestruj</button>
+                <Link to={'/register'}>
+                    <button className="btn btn-outline-light my-2 my-sm-0 ml-4" type="submit">Zarejestruj</button>
+                </Link>
+
             </span>
         )
     }

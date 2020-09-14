@@ -8,6 +8,7 @@ import GameAddPanel from "./form/GameAddPanel";
 import GameDetails from "./details/GameDetails";
 import EditGamePanel from "./form/EditGamePanel";
 import LoginPanel from "./form/LoginPanel";
+import RegisterPanel from "./form/RegisterPanel";
 
 class App extends Component {
     render() {
@@ -30,6 +31,10 @@ class App extends Component {
                         {sessionStorage.getItem("jwt") == null ?
                             <Route exact path="/login" component={LoginPanel} /> :
                             <Redirect from="/login" to={"/"} />}
+
+                        {sessionStorage.getItem("jwt") == null ?
+                            <Route exact path="/register" component={RegisterPanel} /> :
+                            <Redirect from="/register" to={"/"} />}
 
 
                     </Switch>
