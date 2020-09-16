@@ -1,5 +1,6 @@
 import React from "react";
 import jwt_decode from "jwt-claims"
+import host from "../util/API";
 
 class LoginPanel extends React.Component {
     constructor() {
@@ -22,7 +23,7 @@ class LoginPanel extends React.Component {
             password: this.state.password
         }
 
-        fetch('http://localhost:8080/authenticate', {
+        fetch(`${host}/authenticate`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

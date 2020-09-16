@@ -1,5 +1,6 @@
 import React from "react";
 import host from "../util/API";
+import UserDetailElement from "./UserDetailElement";
 
 class UserDetails extends React.Component {
     constructor() {
@@ -45,62 +46,18 @@ class UserDetails extends React.Component {
                             <tr>
                                 <th scope="row">Nazwa użytkownika</th>
                                 <td>{this.state.username}</td>
-                                <td className="text-right">
-                                    <button className="btn btn-success btn-sm" >Zmień</button>
-                                </td>
+                                <td>{this.props.value}</td>
                             </tr>
-                            <tr>
-                                <th scope="row">Email</th>
-                                <td>{this.state.email}</td>
-                                <td className="text-right">
-                                    <button className="btn btn-success btn-sm" >Zmień</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Hasło</th>
-                                <td> </td>
-                                <td className="text-right">
-                                    <button className="btn btn-success btn-sm" >Zmień</button>
-                                </td>
-                            </tr>
+                            <UserDetailElement keyElement="Email" value={this.state.email} apiName={"email"} refresh={this.refresh}/>
+                            <UserDetailElement keyElement="Hasło" value={""} apiName={"password"}/>
                             <tr>
                                 <div className="mb-4 mt-5"><h5>Dane do wysyłki</h5></div>
                             </tr>
-                            <tr>
-                                <th scope="row">Imie</th>
-                                <td>{this.state.name}</td>
-                                <td className="text-right">
-                                    <button className="btn btn-success btn-sm" >Zmień</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Nazwisko</th>
-                                <td>{this.state.surname}</td>
-                                <td className="text-right">
-                                    <button className="btn btn-success btn-sm" >Zmień</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Adres</th>
-                                <td>{this.state.address}</td>
-                                <td className="text-right">
-                                    <button className="btn btn-success btn-sm" >Zmień</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Miasto</th>
-                                <td>{this.state.city}</td>
-                                <td className="text-right">
-                                    <button className="btn btn-success btn-sm" >Zmień</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Kod pocztowy</th>
-                                <td>{this.state.zip}</td>
-                                <td className="text-right">
-                                    <button className="btn btn-success btn-sm" >Zmień</button>
-                                </td>
-                            </tr>
+                            <UserDetailElement keyElement="Imie" value={this.state.name} apiName={"name"}/>
+                            <UserDetailElement keyElement="Nazwisko" value={this.state.surname} apiName={"surname"}/>
+                            <UserDetailElement keyElement="Adres" value={this.state.address} apiName={"address"}/>
+                            <UserDetailElement keyElement="Miasto" value={this.state.city} apiName={"city"}/>
+                            <UserDetailElement keyElement="Kod pocztowy" value={this.state.zip} apiName={"zip"}/>
                             </tbody>
                         </table>
                     </div>
