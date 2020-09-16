@@ -9,6 +9,7 @@ class Basket extends React.Component {
             gameList: [],
             totalPrice: 0.0
         }
+        this.onDelete = this.onDelete.bind(this)
     }
 
     componentDidMount() {
@@ -26,8 +27,12 @@ class Basket extends React.Component {
             .then(() => console.log(this.state))
     }
 
+    onDelete() {
+        this.componentDidMount()
+    }
+
     render() {
-        const htmlList = this.state.gameList.map(game => <BasketElement key={game.id} game={game}/>)
+        const htmlList = this.state.gameList.map(game => <BasketElement key={game.id} game={game} onDelete={this.onDelete()}/>)
         return (
             <div className="container">
                 <div className="row">
