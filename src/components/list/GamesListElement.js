@@ -6,14 +6,15 @@ class GamesListElement extends React.Component {
     constructor() {
         super();
         this.state = {
-            text: "Usuń"
+            text: "Usuń",
+            addText: "Do koszyka"
         }
 
         this.handleClick = this.handleClick.bind(this)
+        this.handleAdd = this.handleAdd.bind(this)
     }
 
     handleClick(){
-        console.log(sessionStorage.getItem("jwt"))
         fetch(`${host}/api/v1/games/${this.props.id}`, {
             method: 'DELETE',
             headers: {
@@ -23,6 +24,17 @@ class GamesListElement extends React.Component {
             .then(response => console.log(response.status))
             .then(() => this.setState({text: "Usunięto"}))
             // .catch(error => console.log("Błąd :< " + error))
+    }
+
+    handleAdd(){
+        fetch(`${host}/api/v1/baskets?gameId=${this.props.id}`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${sessionStorage.getItem("jwt")}`
+            }
+        })
+            .then(response => response.json())
+            .then(() => this.setState({addText: "Dodano"}))
     }
 
     render() {
@@ -45,7 +57,9 @@ class GamesListElement extends React.Component {
                 </Link>
                     <div className="bottom-wrap">
                         {sessionStorage.getItem("role") != null &&
-                            <a href="" className="btn button-standard float-right" style={{fontSize: "0.9em"}}>Do koszyka</a>
+                            <button className="btn button-standard float-right" style={{fontSize: "0.9em"}} onClick={this.handleAdd}>
+                                {this.state.addText}
+                            </button>
                         }
 
                         <div className="price-wrap h5 text-center">

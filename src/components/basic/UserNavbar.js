@@ -15,6 +15,7 @@ class UserNavbar extends React.Component {
     render() {
         return (
             <span className="navbar-text" style={{color: "white"}}>
+
                 Witaj {this.props.username}!
                 <button className="btn btn-outline-light my-2 my-sm-0 ml-4" type="submit" onClick={this.handleClick}>Wyloguj</button>
             </span>

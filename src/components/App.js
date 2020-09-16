@@ -10,6 +10,7 @@ import EditGamePanel from "./form/EditGamePanel";
 import LoginPanel from "./form/LoginPanel";
 import RegisterPanel from "./form/RegisterPanel";
 import UserDetails from "./details/UserDetails";
+import Basket from "./basket/Basket";
 
 class App extends Component {
     render() {
@@ -40,6 +41,10 @@ class App extends Component {
                         {sessionStorage.getItem("jwt") != null ?
                             <Route exact path="/userdetails" component={UserDetails} /> :
                             <Redirect from="/userdetails" to={"/"} />}
+
+                        {sessionStorage.getItem("jwt") != null ?
+                            <Route exact path="/basket" component={Basket} /> :
+                            <Redirect from="/basket" to={"/"} />}
 
 
                     </Switch>

@@ -48,6 +48,13 @@ class Navbar extends React.Component{
                                 <a className="nav-link" href="/">Moje zamówienia</a>
                             </li>
                             }
+                            {this.state.loggedIn &&
+                            <li className="nav-item">
+                                <Link to={'/basket'}>
+                                    <a className="nav-link">Koszyk</a>
+                                </Link>
+                            </li>
+                            }
                             {sessionStorage.getItem("role") === "ROLE_ADMIN" &&
                             <li className="nav-item">
                                 <Link to='/add'>
