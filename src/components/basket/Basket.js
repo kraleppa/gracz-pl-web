@@ -46,6 +46,13 @@ class Basket extends React.Component {
                             </tbody>
                         </table>
                     </div>
+                    <div className="col-12 col-md-4 text-center mt-5">
+                        <h2 className="mt-4">Cena:</h2>
+                        <h1 style={{color: "#3631C2"}}>{this.state.totalPrice} zł</h1>
+                        <button className="btn button-standard btn-lg mt-4">
+                            Do kasy
+                        </button>
+                    </div>
                 </div>
             </div>
         )
