@@ -13,7 +13,6 @@ import UserDetails from "./details/UserDetails";
 import Basket from "./basket/Basket";
 import OrderConfirm from "./basic/OrderConfirm";
 import OrderList from "./orderList/OrderList";
-
 class App extends Component {
     render() {
         return(

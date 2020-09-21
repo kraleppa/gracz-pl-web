@@ -25,9 +25,10 @@ class OrderList extends React.Component {
 
     render() {
         const htmlList = this.state.orders.map(order => <OrderListElement order={order}/>)
+
         return (
             <div className="container">
-                <div className="row mt-5">
+                <div className="row mt-4">
                     <div className="col-12">
                         <table className="table table-striped text-center">
                             <thead>
@@ -39,11 +40,10 @@ class OrderList extends React.Component {
                                 <th scope="col">Cena</th>
                                 <th scope="col">Cena przesyłki</th>
                                 <th scope="col">Status</th>
+                                <th scope="col"> </th>
                             </tr>
                             </thead>
-                            <tbody>
                             {htmlList}
-                            </tbody>
                         </table>
                     </div>
                 </div>
