@@ -7,7 +7,7 @@ class BasketPanel extends React.Component{
         this.state={
             shippingPrice: 0.0,
             shipping: "Odbiór osobisty",
-            paymentOption: "Odbiór osobisty",
+            paymentOption: "Płatność przy odbiorze",
             isShipped: false,
         }
         this.handleChange = this.handleChange.bind(this)

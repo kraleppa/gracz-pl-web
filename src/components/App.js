@@ -12,6 +12,7 @@ import RegisterPanel from "./form/RegisterPanel";
 import UserDetails from "./details/UserDetails";
 import Basket from "./basket/Basket";
 import OrderConfirm from "./basic/OrderConfirm";
+import OrderList from "./orderList/OrderList";
 
 class App extends Component {
     render() {
@@ -46,6 +47,10 @@ class App extends Component {
                         {sessionStorage.getItem("jwt") != null ?
                             <Route exact path="/basket" component={Basket} /> :
                             <Redirect from="/basket" to={"/"} />}
+
+                        {sessionStorage.getItem("jwt") != null ?
+                            <Route exact path="/orders" component={OrderList} /> :
+                            <Redirect from="/orders" to={"/"} />}
 
                         <Route exact path="/orderconfirm/:id/:paymentOption" component={OrderConfirm} />
 

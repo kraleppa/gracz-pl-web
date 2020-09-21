@@ -22,7 +22,7 @@ class OrderConfirm extends React.Component {
                         </div>
                         }
 
-                        {this.props.match.params.paymentOption === "Odbiór osobisty" && <div>
+                        {this.props.match.params.paymentOption === "Płatność przy odbiorze" && <div>
                             <h4>Zapraszamy w godzinach 10 - 18 po odbiór zamówienia</h4>
                         </div>
                         }

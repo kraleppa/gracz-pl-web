@@ -45,7 +45,9 @@ class Navbar extends React.Component{
                             }
                             {this.state.loggedIn &&
                             <li className="nav-item">
-                                <a className="nav-link" href="/">Moje zamówienia</a>
+                                <Link to={'/orders'}>
+                                    <a className="nav-link" href="/">Moje zamówienia</a>
+                                </Link>
                             </li>
                             }
                             {this.state.loggedIn &&
