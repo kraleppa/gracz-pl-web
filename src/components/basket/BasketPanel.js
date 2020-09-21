@@ -6,8 +6,8 @@ class BasketPanel extends React.Component{
         super();
         this.state={
             shippingPrice: 0.0,
-            shipping: "",
-            paymentOption: "",
+            shipping: "Odbiór osobisty",
+            paymentOption: "Odbiór osobisty",
             isShipped: false,
         }
         this.handleChange = this.handleChange.bind(this)
@@ -37,11 +37,13 @@ class BasketPanel extends React.Component{
 
     handleSubmit(event){
         event.preventDefault()
+        console.log(this.state)
         const json = {
             shippingPrice: this.state.shippingPrice,
             shipping: this.state.shipping,
-            paymentOption: this.paymentOption
+            paymentOption: this.state.paymentOption
         }
+        console.log(json)
         fetch(`${host}/api/v1/orders`, {
             method: 'POST',
             headers: {
@@ -51,7 +53,7 @@ class BasketPanel extends React.Component{
             body: JSON.stringify(json)
         })
             .then(response => response.json())
-            .then(data => window.location.href=`/orderconfirm/${data.orderId}`)
+            .then(data => window.location.href=`/orderconfirm/${data.orderId}/${data.paymentOption}`)
     }
 
 

@@ -47,7 +47,7 @@ class App extends Component {
                             <Route exact path="/basket" component={Basket} /> :
                             <Redirect from="/basket" to={"/"} />}
 
-                        <Route exact path="/orderconfirm/:id" component={OrderConfirm} />
+                        <Route exact path="/orderconfirm/:id/:paymentOption" component={OrderConfirm} />
 
                     </Switch>
                     {/*<Footer />*/}
