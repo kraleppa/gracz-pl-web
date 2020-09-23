@@ -64,6 +64,13 @@ class Navbar extends React.Component{
                                 </Link>
                             </li>
                             }
+                            {sessionStorage.getItem("role") === "ROLE_ADMIN" &&
+                            <li className="nav-item">
+                                <Link to='/inprogress'>
+                                    <a className="nav-link">Zamówienia</a>
+                                </Link>
+                            </li>
+                            }
                         </ul>
                         {this.state.loggedIn ? <UserNavbar username={this.state.loggedIn}/> : <LoginNavbar />}
                     </div>

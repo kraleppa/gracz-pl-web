@@ -13,6 +13,7 @@ import UserDetails from "./details/UserDetails";
 import Basket from "./basket/Basket";
 import OrderConfirm from "./basic/OrderConfirm";
 import OrderList from "./orderList/OrderList";
+import InProgressList from "./inProgress/InProgressList";
 class App extends Component {
     render() {
         return(
@@ -30,6 +31,10 @@ class App extends Component {
                         {sessionStorage.getItem("role") === "ROLE_ADMIN" ?
                             <Route exact path="/edit/:id" component={EditGamePanel} /> :
                             <Redirect from="/edit/:id" to={"/"} />}
+
+                        {sessionStorage.getItem("role") === "ROLE_ADMIN" ?
+                            <Route exact path="/inprogress" component={InProgressList} /> :
+                            <Redirect from="/inprogress" to={"/"} />}
 
                         {sessionStorage.getItem("jwt") == null ?
                             <Route exact path="/login" component={LoginPanel} /> :

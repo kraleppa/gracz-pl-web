@@ -25,3 +25,13 @@ export const genreToString = (genreEnum) => {
         default: return null;
     }
 }
+
+export const statusToString = (statusEnum) => {
+    switch (statusEnum) {
+        case "NEW": return "Nowe";
+        case "PAYED": return "Zapłacone";
+        case "SENT": return "Wysłane";
+        default: return null;
+    }
+}
+

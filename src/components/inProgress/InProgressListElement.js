@@ -1,20 +1,35 @@
 import React from "react";
-import OrderElement from "./OrderElement";
+import OrderElement from "../orderList/OrderElement";
 import {statusToString} from "../util/EnumToString";
+import host from "../util/API";
+import {nextOrderState} from "../util/NextEnum";
 
-class OrderListElement extends React.Component {
+class InProgressListElement extends React.Component {
     constructor() {
         super();
         this.state={
             elementsVisible: false
         }
         this.handleClick = this.handleClick.bind(this)
+        this.handleStateChange = this.handleStateChange.bind(this)
     }
 
     handleClick(){
         this.setState(prev => ({
             elementsVisible: !prev.elementsVisible
         }))
+    }
+
+    handleStateChange(){
+        const nextState = nextOrderState(this.props.order.orderState)
+        fetch(`${host}/api/v1/orders?orderState=${nextState}&orderId=${this.props.order.orderId}`, {
+            method: 'PATCH',
+            headers: {
+                'Authorization': `Bearer ${sessionStorage.getItem("jwt")}`,
+            }
+        })
+            .then(response => response.json())
+            .then(this.props.refresh)
     }
 
 
@@ -34,6 +49,9 @@ class OrderListElement extends React.Component {
                     <td><button className="btn-dark btn btn-sm" onClick={this.handleClick}>
                         {this.state.elementsVisible ? 'Schowaj' : 'Więcej'}
                     </button></td>
+                    <td><button className="btn-danger btn btn-sm" onClick={this.handleStateChange}>
+                        Zmień status
+                    </button></td>
                 </tr>
                     {this.state.elementsVisible && orderElements}
 
@@ -43,4 +61,4 @@ class OrderListElement extends React.Component {
 
 }
 
-export default OrderListElement;
+export default InProgressListElement;
