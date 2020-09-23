@@ -12,12 +12,30 @@ class InProgressListElement extends React.Component {
         }
         this.handleClick = this.handleClick.bind(this)
         this.handleStateChange = this.handleStateChange.bind(this)
+        this.showAddress = this.showAddress.bind(this)
     }
 
     handleClick(){
         this.setState(prev => ({
             elementsVisible: !prev.elementsVisible
         }))
+    }
+
+    showAddress(){
+        fetch(`${host}/api/v1/orders/credentials?orderId=${this.props.order.orderId}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${sessionStorage.getItem("jwt")}`,
+            }
+        })
+            .then(response => response.json())
+            .then(data => alert(`
+            Imie: ${data.name} \n 
+            Nazwisko: ${data.surname} \n 
+            Adres: ${data.address} \n 
+            Miasto: ${data.city} \n 
+            Kod pocztowy: ${data.zip} \n
+            Email: ${data.email}`))
     }
 
     handleStateChange(){
@@ -50,7 +68,10 @@ class InProgressListElement extends React.Component {
                         {this.state.elementsVisible ? 'Schowaj' : 'Więcej'}
                     </button></td>
                     <td><button className="btn-danger btn btn-sm" onClick={this.handleStateChange}>
-                        Zmień status
+                        Status
+                    </button></td>
+                    <td><button className="btn-success btn btn-sm" onClick={this.showAddress}>
+                        Dane
                     </button></td>
                 </tr>
                     {this.state.elementsVisible && orderElements}

@@ -55,6 +55,7 @@ class InProgressList extends React.Component {
                                 <th scope="col">Cena przesyłki</th>
                                 <th scope="col">Status</th>
                                 <th scope="col"> </th>
+
                                 <th scope="col">
                                     Aktywne
                                     <input type="checkbox" className="ml-3" checked={this.state.inProgress}
